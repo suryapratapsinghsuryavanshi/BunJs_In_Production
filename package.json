@@ -1,0 +1,8 @@
+{
+  "name": "BunJs_In_Production",
+  "version": "0.0.3",
+  "module": "src/index.js",
+  "devDependencies": {
+    "bun-types": "latest"
+  }
+}
