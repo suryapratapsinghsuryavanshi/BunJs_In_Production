@@ -4,6 +4,8 @@
     "module": "esnext",
     "target": "esnext",
     // "bun-types" is the important part
-    "types": ["bun-types"]
+    "types": ["bun-types"],
+    "noEmitOnError": true,
+    "moduleResolution": "Node" // it is imprtemt if not set to node, the external package are not detected.
   }
 }
