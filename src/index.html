@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- This is an HTML comment; build your site between these HTML tags -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bun.Js Production Application!</title>
+    <style>
+        /* This is a CSS comment. Put your CSS styling below this line */
+
+        @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400;500&family=Poppins:wght@100;200;300&family=Ubuntu:wght@300;400;500&display=swap');
+
+        :root {
+            --primary-color: #3f3d56;
+            --secondry-color: #2f2e41;
+            --main-color: #7c7c7c;
+            --padding: 1rem 2rem;
+            --white: #fff;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            -webkit-tap-highlight-color: transparent;
+            font-family: 'Ubuntu', sans-serif;
+            color: var(--primary-color);
+            scroll-behavior: smooth;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12), 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+            padding: var(--padding);
+            margin-bottom: 2rem;
+        }
+
+        header nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        header nav ul li a {
+            margin: 1.5rem;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        .logo h1 {
+            font-family: 'Edu NSW ACT Foundation';
+            color: var(--secondry-color);
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+
+        .right_section {
+            width: 50%;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--padding);
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+        }
+
+        .right_section h2 span {
+            color: var(--main-color);
+        }
+
+        .hero .left_image img {
+            width: 600px;
+        }
+
+        .right_section {
+            margin-left: 5rem;
+        }
+
+        .right_section p {
+            margin-top: 1rem;
+        }
+
+        .horizontalLine {
+            height: 5px;
+            width: 35%;
+            background: var(--secondry-color);
+            border-radius: 15px;
+            margin: 1rem 0;
+        }
+
+        .middel_section {
+            background: var(--secondry-color);
+            padding: var(--padding);
+            border-radius: 10px;
+        }
+
+        .middel_section h2 {
+            color: var(--white);
+            font-size: 2.2rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            display: flex;
+            color: #2f2e41;
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 5px 10px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: .6rem;
+            font-weight: 500;
+        }
+
+        .card p {
+            font-size: 1.1rem;
+        }
+
+        .card .left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .card p span {
+            text-decoration: underline;
+            color: var(--secondry-color);
+        }
+
+        .card p span::before {
+            content: '#';
+            margin-left: 5px;
+            color: rgb(68, 68, 250);
+            margin-right: 1px;
+        }
+
+        .btn {
+            font-weight: 500;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            background: var(--primary-color);
+            border: none;
+            color: white;
+            padding: 0.3rem 1rem;
+            border: 2px solid var(--primary-color);
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* for learge screen  */
+        @media (min-width: 1376px) {
+            :root {
+                --padding: 1rem 10rem;
+            }
+
+            .right_section {
+                margin-left: 10rem;
+            }
+
+            header {
+                margin-bottom: 4rem;
+            }
+
+            .hero {
+                margin-bottom: 4rem;
+            }
+
+            .card {
+                display: grid;
+                grid-template-columns: 5fr auto;
+            }
+        }
+
+        .lower_footer {
+            text-align: center;
+            background: var(--secondry-color);
+            padding: 0.4rem 0;
+        }
+
+        /* for small screen  */
+        @media (max-width: 982px) {
+            .hero .left_image img {
+                width: 500px;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .card {
+                justify-content: space-around;
+            }
+        }
+
+        /* for small-2 screen  */
+        @media (max-width: 875px) {
+            .hero .left_image img {
+                width: 370px;
+            }
+
+            .cards {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .card {
+                justify-content: space-around;
+            }
+        }
+
+        /* for small-2 screen  */
+        @media (max-width: 7405px) {
+            .hero .left_image img {
+                width: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>Bun.Js in Production</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="https://bun.sh/" target="_blank">Bun</a></li>
+                <li><a href="https://github.com/suryapratapsinghsuryavanshi/bunjs-in-production" target="_blank">GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="hero">
+            <div class="left_image">
+                <div class="middel_section">
+                    <h2>Demo of Bun.Js API endpoints.</h2>
+                    <div class="cards">
+                        <div class="card">
+                            <div class="left">
+                                <h3><a href="/token">Endpoint: /token</a></h3>
+                                <div class="upper_left">
+                                    <input type="text" name="api_res" id="api_res">
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div id="edx" class="imgs"><button class="btn">New Token</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right_section">
+                <h2>Hello, Bun<span style="transition: all 0.5s ease-in-out;" id="ext"></span> <span><br>As a production runtime!</span></h2>
+                <div class="horizontalLine"></div>
+                <p>Bun.js is insanely fast as compared to other Js frameworks so I think it is a good time to move toward it and make some good web things so the community gets advantages of Bun.Js.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="lower_footer">
+            <h3 style="color: white; font-weight: 500;">Made with <span
+                    style="color: red; font-size: 1.5rem; font-family: system-ui;">♥</span> in India!</h3>
+        </div>
+    </footer>
+    <script>
+        let ext = [ '.Js', '.Ts', '.Jsx', '.Tsx' ];
+        let extEle = document.getElementById('ext');
+        let extIdx = 0;
+
+        setInterval(() => {
+            extEle.innerHTML = ext[ extIdx % 4 ];
+            extIdx += 1;
+        }, 1200)
+    </script>
+</body>
+</html>

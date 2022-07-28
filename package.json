@@ -1,8 +1,19 @@
 {
-  "name": "BunJs_In_Production",
+  "name": "bunjs_in_production",
   "version": "0.0.3",
   "module": "src/index.js",
+  "scripts": {
+    "start": "bun ./src/index.ts"
+  },
   "devDependencies": {
     "bun-types": "latest"
+  },
+  "author": {
+    "email": "suryprtaps@gmail.com",
+    "name": "Suryapratap Singh Suryavanshi",
+    "url": "https://suryapratap.netlify.app"
+  },
+  "dependencies": {
+    "sole-token": "^1.1.0"
   }
 }
