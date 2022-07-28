@@ -185,6 +185,7 @@
             transition: all 0.2s ease-in-out;
             cursor: pointer;
             margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
         }
 
         .btn:hover {
@@ -210,9 +211,8 @@
                 margin-bottom: 4rem;
             }
 
-            .card {
-                display: grid;
-                grid-template-columns: 5fr auto;
+            .middel_section {
+                width: max-content;
             }
         }
 
@@ -224,38 +224,49 @@
 
         /* for small screen  */
         @media (max-width: 982px) {
-            .hero .left_image img {
-                width: 500px;
+            body {
+                height: auto;
             }
 
-            .cards {
-                grid-template-columns: repeat(2, 1fr);
+            .hero {
+                flex-direction: column-reverse;
+            }
+
+            .right_section {
+                margin: 0;
+                width: 100%;
+            }
+
+            .right_section h2 {
+                font-size: 2rem;
+            }
+
+            .right_section p {
+                margin-bottom: 2rem;
+            }
+
+            header {
+                flex-direction: column;
+            }
+
+            header .logo {
+                margin-bottom: 1rem;
+            }
+
+            .btn {
+                font-size: revert !important;
+            }
+
+            #copy {
+                margin-left: 0 !important;
+            }
+
+            .inp {
+                width: 93%;
             }
 
             .card {
-                justify-content: space-around;
-            }
-        }
-
-        /* for small-2 screen  */
-        @media (max-width: 875px) {
-            .hero .left_image img {
-                width: 370px;
-            }
-
-            .cards {
-                grid-template-columns: repeat(1, 1fr);
-            }
-
-            .card {
-                justify-content: space-around;
-            }
-        }
-
-        /* for small-2 screen  */
-        @media (max-width: 7405px) {
-            .hero .left_image img {
-                width: 250px;
+                align-items: center;
             }
         }
     </style>
@@ -269,7 +280,7 @@
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="https://bun.sh/" target="_blank">Bun</a></li>
+                <li><a href="https://bun.sh/" target="_blank">Bun.sh</a></li>
                 <li><a href="https://github.com/suryapratapsinghsuryavanshi/bunjs-in-production" target="_blank">GitHub</a></li>
             </ul>
         </nav>
@@ -288,7 +299,10 @@
                                 </div>
                             </div>
                             <div class="right">
-                                <div><button id="inp_fetch" class="btn">New Token</button></div>
+                                <div>
+                                    <button id="inp_fetch" class="btn">New Token</button>
+                                    <button style="margin-left: 1rem;" id="copy" class="btn">Copy Token</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -308,6 +322,8 @@
         </div>
     </footer>
     <script>
+        let token = false;
+        let debug = false;
         let ext = [ '.Js', '.Ts', '.Jsx', '.Tsx' ];
         let extEle = document.getElementById('ext');
         let extIdx = 0;
@@ -316,16 +332,34 @@
             extEle.innerHTML = ext[ extIdx % 4 ];
             extIdx += 1;
         }, 1200)
+        
+        let copyBtn = document.getElementById('copy');
 
         document.getElementById('inp_fetch').addEventListener('click', async () => {
-            console.log("run");
+            debug && console.log("api work");
             const api_url = window.location.href + 'token';
-            console.log(api_url)
-            const res = await fetch(api_url);
-            const data = await res.json();
-            console.log(res, data);
+            debug && console.log(api_url)
+            const data = fetch(api_url).then(res => {
+                res.json().then(data => {
+                    debug && console.log(data);
+                    token = true;
+                    document.getElementById('api_res').value = data.token;
+                    copyBtn.innerHTML = "Copy Token";
+                }).catch(e => {
+                    debug && console.log(e);
+                })
+            }).catch(err => {
+                debug && console.log(err);
+            });
+        });
 
-            document.getElementById('api_res').innerHTML = data.token;
+        copyBtn.addEventListener('click', function () {
+            token && navigator.clipboard
+                .writeText(document.getElementById('api_res').value)
+                .then(
+                    success => copyBtn.innerHTML = "Token Copied!",
+                    err => debug && console.log("error copying text")
+                );
         });
     </script>
 </body>
