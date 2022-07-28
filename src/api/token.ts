@@ -3,6 +3,6 @@ import { soleToken } from 'sole-token'; // for instal module in bun you use: bun
 
 // Create an simple api with bun.
 export default new Response(JSON.stringify({
-    path: '/api/token',
-    token: soleToken({ type: "token", delimiter: '-', size: 32 })
+    path: '/token',
+    token: soleToken()
 }));

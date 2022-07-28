@@ -125,11 +125,13 @@
 
         .card {
             display: flex;
+            flex-direction: column;
             color: #2f2e41;
             background: var(--white);
             border-radius: 10px;
             overflow: hidden;
             padding: 5px 10px;
+            align-items: flex-start;
         }
 
         .card h3 {
@@ -142,11 +144,21 @@
             font-size: 1.1rem;
         }
 
+        .inp {
+            width: 98%;
+            font-size: 1.2rem;
+            padding: 0.2rem;
+            outline: none;
+            border: 2px solid var(--primary-color);
+            border-radius: 5px;
+        }
+
         .card .left {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             padding: 1rem 0;
+            width: 100%;
         }
 
         .card p span {
@@ -172,6 +184,7 @@
             border: 2px solid var(--primary-color);
             transition: all 0.2s ease-in-out;
             cursor: pointer;
+            margin-top: 0.5rem;
         }
 
         .btn:hover {
@@ -271,11 +284,11 @@
                             <div class="left">
                                 <h3><a href="/token">Endpoint: /token</a></h3>
                                 <div class="upper_left">
-                                    <input type="text" name="api_res" id="api_res">
+                                    <input readonly class="inp" type="text" name="api_res" id="api_res">
                                 </div>
                             </div>
                             <div class="right">
-                                <div id="edx" class="imgs"><button class="btn">New Token</button></div>
+                                <div><button id="inp_fetch" class="btn">New Token</button></div>
                             </div>
                         </div>
                     </div>
@@ -303,6 +316,17 @@
             extEle.innerHTML = ext[ extIdx % 4 ];
             extIdx += 1;
         }, 1200)
+
+        document.getElementById('inp_fetch').addEventListener('click', async () => {
+            console.log("run");
+            const api_url = window.location.href + 'token';
+            console.log(api_url)
+            const res = await fetch(api_url);
+            const data = await res.json();
+            console.log(res, data);
+
+            document.getElementById('api_res').innerHTML = data.token;
+        });
     </script>
 </body>
 </html>

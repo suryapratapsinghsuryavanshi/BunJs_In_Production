@@ -14,6 +14,6 @@
     "url": "https://suryapratap.netlify.app"
   },
   "dependencies": {
-    "sole-token": "^1.1.0"
+    "sole-token": "^1.1.1"
   }
 }

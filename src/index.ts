@@ -20,12 +20,12 @@
     And be use database for manage uniqeness of token, to not nesseory but for demostartion
     Redis with bun i tink this is an grate example here to deal with json data in redis cloud.
 */
-import { resolve } from "node:path/posix";
 import token from "./api/token";
 const PORT: number = 3000 || parseInt(process.env.PORT, 10);
 
 export default Bun.serve({
     fetch(req: Request) {
+        console.log(req);
         if(req.url.includes('/token')) {
             return token;
         }else if(req.url.includes('/') || req.url.includes('')) {
