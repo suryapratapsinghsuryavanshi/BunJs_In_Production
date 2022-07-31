@@ -26,7 +26,7 @@ Objectively, I can say that currently, BunJs cannot replace NodeJs, but if most 
 > `bun instal <dependency>` Install dependencies for a package.json.
 
 ## For Deployment
-Add those scripts of your pacakge.json file
+Add those scripts of your package.json file
 ```js 
 "scripts": {
     "start": "bun ./src/index.ts",
