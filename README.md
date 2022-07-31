@@ -39,3 +39,14 @@ Add those scripts of your package.json file
 > `bun bun <files>` is a default bundler for external dependencies. <br>
 > `pm2` for the server-side processing of bun.js. <br>
 > `pm2 start bun --name \"bun_in_production\" -- start` start bun script wiht pm2.
+
+## For Cron job
+You can add the auto-pull.sh to your cron job, it make further development faster.
+```sh
+crontab -e
+
+# add below code
+
+*/2 * * * * bash /home/BunJs_In_Production/auto-pull.sh
+
+```
