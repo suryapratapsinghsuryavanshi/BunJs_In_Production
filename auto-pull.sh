@@ -23,7 +23,7 @@ else
         export PORT=3000 # assign env port
         pm2 start bun --name "bun_in_production" -- start
     else
-        pm2 restart bun_in_production
+        pm2 restart bun_in_production # restart if the update done.
     fi
 fi
 
