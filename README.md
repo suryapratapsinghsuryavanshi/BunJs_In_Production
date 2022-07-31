@@ -37,5 +37,5 @@ Add those scripts of your package.json file
 
 > `bun <file | script>` file_name.[ts, js, tsx, jsx]: for running a file. <br>
 > `bun bun <files>` is a default bundler for external dependencies. <br>
-> `pm2` for the server-side processing of bun.js. <br>
+> `pm2` for the server side processing of bun.js. <br>
 > `pm2 start bun --name \"bun_in_production\" -- start` start bun script wiht pm2.
