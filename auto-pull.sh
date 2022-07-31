@@ -18,8 +18,11 @@ else
     then
         echo "pm2 not install!"
         npm install -g pm2 # install pm2
+        sleep 20
         cd /home/BunJs_In_Production/ # change directory.
+        sleep 20
         bun install # insall all bun dependency
+        sleep 20
         export PORT=3000 # assign env port
         pm2 start bun --name "bun_in_production" -- start
     else
