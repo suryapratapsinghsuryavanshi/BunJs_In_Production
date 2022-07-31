@@ -3,7 +3,9 @@
   "version": "0.0.3",
   "module": "src/index.js",
   "scripts": {
-    "start": "bun ./src/index.ts"
+    "start": "bun ./src/index.ts",
+    "build": "bun bun ./src/index.ts ./src/index.html ./src/db.ts && ./node_modules.bun > node_modules.js",
+    "deploy": "npm install -g pm2 && pm2 start bun --name \"bun_in_production\" -- start"
   },
   "devDependencies": {
     "bun-types": "latest"
