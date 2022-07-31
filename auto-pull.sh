@@ -14,4 +14,4 @@ else
 fi
 
 # We run this shell script by the use cron task.
-# Task run at every minites: * * * * *
+# Task run at every minutes: * * * * *
