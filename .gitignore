@@ -7,7 +7,7 @@ yarn-error.log*
 lerna-debug.log*
 
 # database
-.sqlite
+*.sqlite
 
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
