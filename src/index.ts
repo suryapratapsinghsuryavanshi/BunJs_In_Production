@@ -1,5 +1,3 @@
-#!/usr/bin/env bun
-
 // Read More about Bun.Js: https://bun.sh/
 // Read More about Sqlite: https://github.com/oven-sh/bun#bunsqlite-sqlite3-module
 
