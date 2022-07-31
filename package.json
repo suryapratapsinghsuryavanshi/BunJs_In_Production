@@ -15,5 +15,8 @@
   },
   "dependencies": {
     "sole-token": "^1.1.1"
+  },
+  "bun": {
+    "alwaysBundle": ["@bunInProd/my-workspace-package"]
   }
 }
